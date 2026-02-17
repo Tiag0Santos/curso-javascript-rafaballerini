@@ -1,27 +1,30 @@
- function adicionarTarefa() {  
-    let mensagem = "Tarefa adicionada com sucesso!"
+ function adicionarTarefa() {      
     
-    //essa variavel pega o elemento input
-    let inputTarefa = document.getElementById("inputTarefa")
-    
-    //essa variavel pega o que ta escrito no input
-    let tarefa = inputTarefa.value
+    //recebe o valor do input do usuário
+    const inputTarefa = document.getElementById("inputTarefa")
+    let tarefa = inputTarefa.value.trim()
 
-    //essa parte pega o elemento p e adiciona a mensagem após o botão
-    document.getElementById("mensagem").textContent = mensagem;
+    const mensagem = document.getElementById("mensagem")
+        
+        //se o valor do input for vazio mostre uma mensagem de erro
+        if (tarefa == "") {
+            //mostre uma mensagem de erro
+            let mensagemErro = "Campo vazio, escreva uma tarefa válida!"
+            mensagem.textContent = mensagemErro
+            mensagem.style.color = "#A34743"
+        } else { 
+            //mensagem de tarefa adicionada com sucesso
+            let mensagemSucesso = "Tarefa adicionada com sucesso!"
+            mensagem.textContent = mensagemSucesso
+            mensagem.style.color= "#28a745"
+        
+            //cria novo item li e insere na lista ul
+            const listaTarefas = document.getElementById("listaTarefas")
+            let novaTarefa = document.createElement("li")
+            novaTarefa.textContent = tarefa
+            listaTarefas.appendChild(novaTarefa)        
+        } 
 
-    //essa variavel pega o elemento ul para criar uma lista
-    let listaTarefas = document.getElementById("listaTarefas")
-    
-    //essa variavel cria os elementos li na lista
-    let novaTarefa = document.createElement("li")
-    
-    //nessa parte ele pega o texto digitado na tarefa
-    novaTarefa.textContent = tarefa
-
-    //cria um elemento filho li na ul
-    listaTarefas.appendChild(novaTarefa)
-
-    //limpa o input
+    //limpa o input do usuário
     inputTarefa.value = ""
-    }
+}
