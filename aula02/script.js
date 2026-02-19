@@ -1,5 +1,7 @@
+ let tarefas = []
+ 
  function adicionarTarefa() {      
-    
+   
     //recebe o valor do input do usuário
     const inputTarefa = document.getElementById("inputTarefa")
     let tarefa = inputTarefa.value.trim()
@@ -17,14 +19,23 @@
             let mensagemSucesso = "Tarefa adicionada com sucesso!"
             mensagem.textContent = mensagemSucesso
             mensagem.style.color= "#28a745"
-        
-            //cria novo item li e insere na lista ul
-            const listaTarefas = document.getElementById("listaTarefas")
-            let novaTarefa = document.createElement("li")
-            novaTarefa.textContent = tarefa
-            listaTarefas.appendChild(novaTarefa)        
+            tarefas.push(tarefa)
+            renderizarTarefas()    
         } 
 
     //limpa o input do usuário
     inputTarefa.value = ""
+}
+
+function renderizarTarefas() {
+    //cria novo item li e insere na lista ul
+    const listaTarefas = document.getElementById("listaTarefas")
+    listaTarefas.innerHTML = ""
+
+    let i = 0 
+    for(i; i < tarefas.length; i++){
+        let novaTarefa = document.createElement("li")
+        novaTarefa.textContent = tarefas[i]
+        listaTarefas.appendChild(novaTarefa) 
+    }      
 }
