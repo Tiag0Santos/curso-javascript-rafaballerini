@@ -1,6 +1,6 @@
-📋 Lista de Tarefas - JavaScript
+# **📋 Lista de Tarefas - JavaScript**
 
-Projeto desenvolvido durante o curso de JavaScript da Rafaela Ballerini com o objetivo de praticar manipulação do DOM, arrays e lógica de programação.
+## **Projeto desenvolvido durante o curso de JavaScript da Rafaela Ballerini com o objetivo de praticar manipulação do DOM, arrays e lógica de programação.**
 
 🚀 Funcionalidades
 
