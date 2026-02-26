@@ -19,6 +19,7 @@ Projeto desenvolvido durante o curso de JavaScript da Rafaela Ballerini com o ob
 👁️ Botão "Limpar Lista" aparece apenas quando há tarefas
 
 🧠 Conceitos Trabalhados
+
 📌 1. Manipulação do DOM
 
 document.getElementById()
