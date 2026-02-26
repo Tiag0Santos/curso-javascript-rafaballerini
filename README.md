@@ -1,8 +1,8 @@
 # **📋 Lista de Tarefas - JavaScript**
 
-## **Projeto desenvolvido durante o curso de JavaScript da Rafaela Ballerini com o objetivo de praticar manipulação do DOM, arrays e lógica de programação.**
+## **Projeto desenvolvido durante o curso de JavaScript com a Rafaela Ballerini com o objetivo de praticar manipulação do DOM, arrays e lógica de programação.**
 
-🚀 Funcionalidades
+### 🚀 Funcionalidades
 
 ✅ Adicionar tarefa
 
@@ -18,9 +18,10 @@
 
 👁️ Botão "Limpar Lista" aparece apenas quando há tarefas
 
-🧠 Conceitos Trabalhados
 
-📌 1. Manipulação do DOM
+### **🧠 Conceitos Trabalhados:**
+
+### **📌 1. Manipulação do DOM**
 
 document.getElementById()
 
@@ -34,7 +35,7 @@ textContent
 
 Manipulação dinâmica de elementos
 
-📌 2. Eventos
+### **📌 2. Eventos**
 
 onclick
 
@@ -42,7 +43,7 @@ addEventListener()
 
 Eventos de clique em elementos criados dinamicamente
 
-📌 3. Arrays
+### **📌 3. Arrays**
 
 Criação de array
 
@@ -54,7 +55,7 @@ length para controle de estado
 
 Percorrer array com for e forEach
 
-📌 4. Estruturas Condicionais
+### **📌 4. Estruturas Condicionais**
 
 if / else
 
@@ -62,7 +63,7 @@ Validação de campo vazio
 
 Controle de exibição de elementos
 
-📌 5. Manipulação de Classes CSS
+### **📌 5. Manipulação de Classes CSS**
 
 classList.toggle()
 
@@ -70,7 +71,7 @@ Separação de responsabilidade entre CSS e JavaScript
 
 Controle de visibilidade via classe .oculto
 
-📌 6. Boas Práticas Aplicadas
+### **📌 6. Boas Práticas Aplicadas**
 
 Uso de trim() para remover espaços
 
@@ -82,22 +83,22 @@ Código organizado e reutilizável
 
 Re-renderização controlada da lista
 
-🎯 Objetivo do Projeto
+### **🎯 Objetivo do Projeto**
 
 Praticar:
 
-Lógica de programação
+- Lógica de programação
 
-Manipulação dinâmica de elementos
+- Manipulação dinâmica de elementos
 
-Controle de estado com arrays
+- Controle de estado com arrays
 
-Interação entre HTML, CSS e JavaScript
+- Interação entre HTML, CSS e JavaScript
 
-💻 Tecnologias Utilizadas
+### **💻 Tecnologias Utilizadas**
 
-HTML5
+- HTML5
 
-CSS3
+- CSS3
 
-JavaScript (Vanilla JS)
+- JavaScript (Vanilla JS)
