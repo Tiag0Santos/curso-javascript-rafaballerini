@@ -5,11 +5,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #331F19; 
+    background-color: #83d3ab; 
 }
 .container {
     text-align: center;
-    background-color: #CBBBA7;
+    background-color: #ebc9a1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ p {
     color: #331F19;
     font-size: 1.1em;
 }
-button {
+.button-adicionar {
     background-color: #798252;
     color: #F4F0EA;
     padding: 10px 20px;
@@ -35,7 +35,7 @@ button {
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
-button:hover {
+.button-adicionar:hover {
     background-color: #CCD595;
     color: #504e4d;
 }
@@ -72,36 +72,34 @@ input[type="text"]:focus {
     box-shadow: inset 0 2px 4px rgba(96, 4, 26, 0.3);
 }
 button.remover {
-    background-color: #A34743;
-    color: #F4F0EA;
+    background-image: url(/img/png/001-lata-de-lixo.png);    
+    width: 24px;
+    height: 24px;   
     padding: 5px 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.6em;
-    margin-left: 5px;
-    transition: background-color 0.3s ease;
+    border: none;    
+    cursor: pointer;    
+    margin-left: 5px;    
 }
-button.remover:hover {
-    background-color: #60041A;
-}
-button.editar {
-    background-color: #331F19;
-    color: #F4F0EA;
+
+.button-editar {
+    background-image: url(/img/png/002-editar.png);    
+    width: 24px;
+    height: 24px;   
     padding: 5px 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.6em;
+    border: none;    
+    cursor: pointer;    
     margin-left: 5px;
-    transition: background-color 0.3s ease;
-}
-button.editar:hover {
-    background-color: #744d41;
 }
 
 .botao_lista {
     background-color: #A34743;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .botao_lista:hover {

@@ -1,13 +1,10 @@
- let tarefas = []
+ let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
  
- function adicionarTarefa() {      
+ function adicionarTarefa() {    
    
-    
     const inputTarefa = document.getElementById("inputTarefa")
     let tarefa = inputTarefa.value.trim()
-
-    const mensagem = document.getElementById("mensagem")
-        
+    const mensagem = document.getElementById("mensagem")        
         
         if (tarefa == "") {
             
@@ -20,10 +17,15 @@
             mensagem.textContent = mensagemSucesso
             mensagem.style.color= "#28a745"
             tarefas.push(tarefa)
+            salvarTarefas()
             renderizarTarefas()    
         } 
 
     inputTarefa.value = ""
+}
+
+function salvarTarefas(){
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
 }
 
 function renderizarTarefas() {
@@ -39,15 +41,14 @@ function renderizarTarefas() {
         novaTarefa.textContent = tarefas[i]
 
         let botaoRemover = document.createElement("button")
+        botaoRemover.classList.add ("button.remover")
         botaoRemover.className = "remover"
-        botaoRemover.textContent = "Remover"
         botaoRemover.onclick = () => removerTarefa(i)
 
         let botaoEditar = document.createElement("button")
-        botaoEditar.className = "editar"
-        botaoEditar.textContent = "Editar"
-        botaoEditar.onclick = () => editarTarefa(i)        
-
+        botaoEditar.className = "button-editar"
+        botaoEditar.classList.add ("button-editar")
+        botaoEditar.onclick = () => editarTarefa(i)
         novaTarefa.appendChild(botaoRemover)
         novaTarefa.appendChild(botaoEditar)
         listaTarefas.appendChild(novaTarefa)
@@ -57,6 +58,7 @@ function renderizarTarefas() {
 
 function removerTarefa(i) {
     tarefas.splice(i, 1)
+    salvarTarefas()
     renderizarTarefas()
     const mensagem = document.getElementById("mensagem")
     mensagem.textContent = "Tarefa excluida com sucesso!"
@@ -67,6 +69,7 @@ function editarTarefa(i) {
     let tarefaEditada = prompt("Edite a tarefa:")
     if (tarefaEditada !== null && tarefaEditada.trim() !== "") {
         tarefas[i] = tarefaEditada
+        salvarTarefas()
         renderizarTarefas()
 
         const mensagem = document.getElementById("mensagem")
@@ -78,9 +81,13 @@ function editarTarefa(i) {
 function limparLista(){    
     
     if (tarefas.length !== 0){        
-        tarefas.length = 0        
+        tarefas.length = 0
+        salvarTarefas()        
         renderizarTarefas()        
         const mensagem = document.getElementById("mensagem")
         mensagem.textContent = "Lista excluida com sucesso!"
+        mensagem.style.color = "#28a745"
     }
 }
+
+renderizarTarefas()
