@@ -39,6 +39,8 @@ function renderizarTarefas() {
     for(let i = 0; i < tarefas.length; i++){
         let novaTarefa = document.createElement("li")
         novaTarefa.textContent = tarefas[i]
+        let acoes = document.createElement("div")
+        acoes.classList.add ("acoes")
 
         let botaoRemover = document.createElement("button")
         botaoRemover.classList.add ("button.remover")
@@ -49,8 +51,11 @@ function renderizarTarefas() {
         botaoEditar.className = "button-editar"
         botaoEditar.classList.add ("button-editar")
         botaoEditar.onclick = () => editarTarefa(i)
-        novaTarefa.appendChild(botaoRemover)
-        novaTarefa.appendChild(botaoEditar)
+        
+        novaTarefa.appendChild(acoes)
+        acoes.appendChild(botaoEditar)
+        novaTarefa.appendChild(acoes)
+        acoes.appendChild(botaoRemover)
         listaTarefas.appendChild(novaTarefa)
     }
 
