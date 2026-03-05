@@ -13,10 +13,23 @@
     <input type="text" id="inputTarefa" placeholder="Digite a sua tarefa">
     <button onclick="adicionarTarefa()" class="button-adicionar">Adicionar Tarefa</button>
     <button onclick="limparLista()" id="botaoLimparLista" class="botao_lista oculto">Excluir Tudo</button>
-    <p id="mensagem"></p>
+    <p id="mensagem"></p>    
     <ul id="listaTarefas"></ul>
   </div>
 
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <h2>Editar Tarefa</h2>
+      <input type="text" id="inputEditar">
+        <div class="modal-botoes">
+          <button onclick="fecharModal()"
+          id="cancelar" class="btn-cancelar-edicao">Cancelar</button>
+          <button onclick="salvarEdicao()"
+          id="salvar" class="btn-salvar-edicao">Salvar</button>
+        </div>
+    </div>
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>

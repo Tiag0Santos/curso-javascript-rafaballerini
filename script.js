@@ -1,4 +1,8 @@
- let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
+const modalOverlay = document.getElementById("modal-overlay")
+const inputEditar = document.getElementById("inputEditar")
+
+let tarefaEditada = null
  
  function adicionarTarefa() {    
    
@@ -71,11 +75,15 @@ function removerTarefa(i) {
 }
 
 function editarTarefa(i) {
-    let tarefaEditada = prompt("Edite a tarefa:")
-    if (tarefaEditada !== null && tarefaEditada.trim() !== "") {
-        tarefas[i] = tarefaEditada
+    abrirModal(tarefas[i], i)}
+
+function salvarEdicao(){
+    if (inputEditar.value.trim() !== "") {
+        tarefas[tarefaEditada] =
+        inputEditar.value.trim()
         salvarTarefas()
         renderizarTarefas()
+        fecharModal()
 
         const mensagem = document.getElementById("mensagem")
         mensagem.textContent = "Tarefa editada com sucesso!"
@@ -83,12 +91,24 @@ function editarTarefa(i) {
     }
 }
 
+function abrirModal(textoAtual, index){
+    modalOverlay.style.display = "flex";
+    inputEditar.value = textoAtual;
+    tarefaEditada = index;
+}
+
+function fecharModal(){
+    modalOverlay.style.display = "none";
+    inputEditar.value = "";
+    tarefaEditada = null;
+}
+
 function limparLista(){    
     
     if (tarefas.length !== 0){        
         tarefas.length = 0
         salvarTarefas()        
-        renderizarTarefas()        
+        renderizarTarefas()       
         const mensagem = document.getElementById("mensagem")
         mensagem.textContent = "Lista excluida com sucesso!"
         mensagem.style.color = "#28a745"
@@ -96,3 +116,23 @@ function limparLista(){
 }
 
 renderizarTarefas()
+
+const inputTarefa = document.getElementById("inputTarefa")
+
+inputTarefa.addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        adicionarTarefa()
+    }
+})
+
+modalOverlay.addEventListener("click", function(event){
+    if(event.target === modalOverlay){
+        fecharModal()
+    }
+})
+
+inputEditar.addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        salvarEdicao()
+    }
+})
