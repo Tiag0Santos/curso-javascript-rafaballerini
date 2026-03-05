@@ -200,4 +200,7 @@ button.remover {
         border: none;
         box-shadow: none;
     }
+    .modal{
+    max-width: 300px;
+}
  }
