@@ -13,7 +13,13 @@
     <input type="text" id="inputTarefa" placeholder="Digite a sua tarefa">
     <button onclick="adicionarTarefa()" class="button-adicionar">Adicionar Tarefa</button>
     <button onclick="limparLista()" id="botaoLimparLista" class="botao_lista oculto">Excluir Tudo</button>
-    <p id="mensagem"></p>    
+    <p id="mensagem"></p>
+    <div class="paginas">
+        <button id="todas" class="button-paginas">Todas</button>
+        <button id="pendentes" class="button-paginas">Pendentes</button>
+        <button id="concluidas" class="button-paginas">Concluídas</button>
+    </div>
+        <hr>         
     <ul id="listaTarefas"></ul>
   </div>
 
@@ -29,7 +35,7 @@
         </div>
     </div>
   </div>
-  
+
   <script src="script.js"></script>
 </body>
 </html>

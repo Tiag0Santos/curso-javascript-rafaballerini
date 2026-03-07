@@ -1,4 +1,6 @@
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
+let filtroAtual = "todas"
+
 const modalOverlay = document.getElementById("modal-overlay")
 const inputEditar = document.getElementById("inputEditar")
 
@@ -20,7 +22,10 @@ let tarefaEditada = null
             let mensagemSucesso = "Tarefa adicionada com sucesso!"
             mensagem.textContent = mensagemSucesso
             mensagem.style.color= "#28a745"
-            tarefas.push(tarefa)
+            tarefas.push({
+                texto: tarefa,
+                concluida: false
+            })
             salvarTarefas()
             renderizarTarefas()    
         } 
@@ -36,15 +41,52 @@ function renderizarTarefas() {
     
     const listaTarefas = document.getElementById("listaTarefas")
     listaTarefas.innerHTML = ""
+
+    let tarefasFiltradas = tarefas
+
+    if (filtroAtual === "pendentes") {
+        tarefasFiltradas = tarefas.filter(t => !t.concluida)
+    }
+
+    if (filtroAtual === "concluidas") {
+        tarefasFiltradas = tarefas.filter(t => t.concluida)
+    }
     
     const botaoLimparLista = document.getElementById("botaoLimparLista")
     botaoLimparLista.classList.toggle("oculto", tarefas.length === 0)
 
-    for(let i = 0; i < tarefas.length; i++){
+    for(let i = 0; i < tarefasFiltradas.length; i++){
+
         let novaTarefa = document.createElement("li")
-        novaTarefa.textContent = tarefas[i]
+        
         let acoes = document.createElement("div")
         acoes.classList.add ("acoes")
+
+        let checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        checkbox.checked = tarefasFiltradas[i].concluida
+
+        let span = document.createElement("span")
+        span.textContent = tarefasFiltradas[i].texto
+        
+        if(tarefas[i].concluida){
+            span.classList.add("concluida")
+        }
+
+        checkbox.addEventListener("change", () => {
+
+            tarefas[i].concluida = checkbox.checked
+
+            salvarTarefas()
+
+            if(checkbox.checked){
+                span.classList.add("concluida")
+            } else {
+                span.classList.remove("concluida")
+            }
+
+            localStorage.setItem("tarefas", JSON.stringify(tarefas))
+        })
 
         let botaoRemover = document.createElement("button")
         botaoRemover.classList.add ("button.remover")
@@ -56,9 +98,11 @@ function renderizarTarefas() {
         botaoEditar.classList.add ("button-editar")
         botaoEditar.onclick = () => editarTarefa(i)
         
+        novaTarefa.appendChild(checkbox)
+        novaTarefa.appendChild(span)
         novaTarefa.appendChild(acoes)
+
         acoes.appendChild(botaoEditar)
-        novaTarefa.appendChild(acoes)
         acoes.appendChild(botaoRemover)
         listaTarefas.appendChild(novaTarefa)
     }
@@ -75,12 +119,13 @@ function removerTarefa(i) {
 }
 
 function editarTarefa(i) {
-    abrirModal(tarefas[i], i)}
+    abrirModal(tarefas[i].texto, i)}
 
 function salvarEdicao(){
     if (inputEditar.value.trim() !== "") {
-        tarefas[tarefaEditada] =
+        tarefas[tarefaEditada].texto =
         inputEditar.value.trim()
+
         salvarTarefas()
         renderizarTarefas()
         fecharModal()
@@ -116,6 +161,21 @@ function limparLista(){
 }
 
 renderizarTarefas()
+
+document.getElementById("todas").addEventListener("click", () => {
+    filtroAtual = "todas"
+    renderizarTarefas()
+})
+
+document.getElementById("pendentes").addEventListener("click", () => {
+    filtroAtual = "pendentes"
+    renderizarTarefas()
+})
+
+document.getElementById("concluidas").addEventListener("click", () => {
+    filtroAtual = "concluidas"
+    renderizarTarefas()
+})
 
 const inputTarefa = document.getElementById("inputTarefa")
 
