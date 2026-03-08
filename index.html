@@ -11,13 +11,21 @@
     <h1>Lista de Tarefas</h1>
     <p>Adicione suas tarefas!</p>
     <input type="text" id="inputTarefa" placeholder="Digite a sua tarefa">
-    <button onclick="adicionarTarefa()" class="button-adicionar">Adicionar Tarefa</button>
-    <button onclick="limparLista()" id="botaoLimparLista" class="botao_lista oculto">Excluir Tudo</button>
+    <button onclick="adicionarTarefa()" class="botao
+    button-adicionar">Adicionar Tarefa</button>
+    <button onclick="limparLista()" id="botaoLimparLista" class="botao
+    botao_lista oculto">Excluir Tudo</button>
     <p id="mensagem"></p>
     <div class="paginas">
-        <button id="todas" class="button-paginas">Todas</button>
-        <button id="pendentes" class="button-paginas">Pendentes</button>
-        <button id="concluidas" class="button-paginas">Concluídas</button>
+        <button id="todas" class="botao button-paginas">Todas
+        <span class="contador" id="cont-todas">0</span>
+        </button>
+        <button id="pendentes" class="botao button-paginas">Pendentes
+        <span class="contador" id="cont-pendentes">0</span>
+        </button>
+        <button id="concluidas" class="botao button-paginas">Concluídas
+        <span class="contador" id="cont-concluidas">0</span>
+        </button>
     </div>
         <hr>         
     <ul id="listaTarefas"></ul>

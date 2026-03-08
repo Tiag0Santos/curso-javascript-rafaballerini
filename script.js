@@ -27,7 +27,8 @@ let tarefaEditada = null
                 concluida: false
             })
             salvarTarefas()
-            renderizarTarefas()    
+            renderizarTarefas()
+            atualizarContador()
         } 
 
     inputTarefa.value = ""
@@ -58,6 +59,7 @@ function renderizarTarefas() {
     for(let i = 0; i < tarefasFiltradas.length; i++){
 
         let novaTarefa = document.createElement("li")
+        novaTarefa.classList.add("animar-tarefa")
         
         let acoes = document.createElement("div")
         acoes.classList.add ("acoes")
@@ -69,13 +71,15 @@ function renderizarTarefas() {
         let span = document.createElement("span")
         span.textContent = tarefasFiltradas[i].texto
         
-        if(tarefas[i].concluida){
+        if(tarefasFiltradas[i].concluida){
             span.classList.add("concluida")
         }
 
         checkbox.addEventListener("change", () => {
 
-            tarefas[i].concluida = checkbox.checked
+            const indexReal = tarefas.indexOf(tarefasFiltradas[i])
+
+            tarefas[indexReal].concluida = checkbox.checked
 
             salvarTarefas()
 
@@ -85,12 +89,12 @@ function renderizarTarefas() {
                 span.classList.remove("concluida")
             }
 
-            localStorage.setItem("tarefas", JSON.stringify(tarefas))
+            atualizarContador()
         })
 
         let botaoRemover = document.createElement("button")
-        botaoRemover.classList.add ("button.remover")
-        botaoRemover.className = "remover"
+        botaoRemover.classList.add ("button-remover")
+        botaoRemover.className = "button-remover"
         botaoRemover.onclick = () => removerTarefa(i)
 
         let botaoEditar = document.createElement("button")
@@ -105,14 +109,28 @@ function renderizarTarefas() {
         acoes.appendChild(botaoEditar)
         acoes.appendChild(botaoRemover)
         listaTarefas.appendChild(novaTarefa)
+
     }
 
+    atualizarContador()
+
+}
+
+function atualizarContador(){
+    const todas = tarefas.length
+    const concluidas = tarefas.filter(t => t.concluida).length
+    const pendentes = tarefas.filter(t => !t.concluida).length
+
+    document.getElementById("cont-todas").textContent = todas
+    document.getElementById("cont-pendentes").textContent = pendentes
+    document.getElementById("cont-concluidas").textContent = concluidas
 }
 
 function removerTarefa(i) {
     tarefas.splice(i, 1)
     salvarTarefas()
     renderizarTarefas()
+    atualizarContador()
     const mensagem = document.getElementById("mensagem")
     mensagem.textContent = "Tarefa excluida com sucesso!"
     mensagem.style.color= "#28a745"
@@ -129,6 +147,7 @@ function salvarEdicao(){
         salvarTarefas()
         renderizarTarefas()
         fecharModal()
+        atualizarContador()
 
         const mensagem = document.getElementById("mensagem")
         mensagem.textContent = "Tarefa editada com sucesso!"
@@ -158,6 +177,9 @@ function limparLista(){
         mensagem.textContent = "Lista excluida com sucesso!"
         mensagem.style.color = "#28a745"
     }
+
+    atualizarContador()
+
 }
 
 renderizarTarefas()
