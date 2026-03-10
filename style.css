@@ -111,6 +111,8 @@ input[type="checkbox"]:checked {
 }
 
 .contador{
+    min-width: 10px;
+    text-align: center;
     color: #000000;
     padding: 2px 8px;
     font-size: 0.8em;
@@ -145,16 +147,18 @@ input[type="checkbox"]:checked {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;    
 }
 
 .button-paginas{
     display: flex;
-    justify-content: center;    
+    align-items: center;
     background-color: #ebc9a1;
-    color: #000000;
-    padding: 10px 20px;
-    border-radius: 10px 10px 0px 00px ;     
-    margin-top: 10px;
+    color: #000000;  
+    border-radius: 10px 10px 0px 00px ;  
+    padding: 20;
+    margin: 10px;
+    margin-bottom: 0;
 }
 
 .button-paginas:hover{
@@ -163,7 +167,7 @@ input[type="checkbox"]:checked {
 
 hr{
     border-bottom: 2px solid #ad957a;
-    width: 90%;
+    width: 100%;
     margin-top: 0;
 }
 
@@ -198,24 +202,17 @@ hr{
     margin-top: 15px;
 }
 
-.btn-cancelar-edicao{
-    width: 100px;
+.btn-cancelar-edicao{    
     background-color: #929090;
-    color: #F4F0EA;
-    padding: 10px 20px;    
-    border-radius: 5px;    
-    margin-right: 20px;
-    margin-top: 10px;
+    color: #F4F0EA;    
+    margin-right: 5px;
+   
 }
 
-.btn-salvar-edicao{
-    width: 100px;
+.btn-salvar-edicao{  
     background-color: #798252;
     color: #F4F0EA;
-    padding: 10px 20px;
-    border-radius: 5px;    
-    margin-right: 5px;
-    margin-top: 10px;
+    margin-left: 5px;    
 }
 
 .btn-cancelar-edicao:hover{
@@ -250,6 +247,19 @@ hr{
     .container{     
         border: none;
         box-shadow: none;
+    }
+
+     .paginas{
+        margin: 10px; 
+        margin-bottom: 0;
+    }
+   
+    .button-paginas{     
+        width: 120px;
+        font-size: 0.8em; 
+        padding: 10px;
+        margin-bottom: 0;
+        margin: 0;
     }
 
     .modal{

@@ -109,7 +109,6 @@ function renderizarTarefas() {
         acoes.appendChild(botaoEditar)
         acoes.appendChild(botaoRemover)
         listaTarefas.appendChild(novaTarefa)
-
     }
 
     atualizarContador()
