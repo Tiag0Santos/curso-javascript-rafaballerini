@@ -1,104 +1,68 @@
-# **📋 Lista de Tarefas - JavaScript**
+# 📋 Lista de Tarefas (To-Do List)
 
-## **Projeto desenvolvido durante o curso de JavaScript com a Rafaela Ballerini com o objetivo de praticar manipulação do DOM, arrays e lógica de programação.**
+## Aplicação web simples para gerenciamento de tarefas desenvolvida com **HTML, CSS e JavaScript puro (Vanilla JS)**.
 
-### 🚀 Funcionalidades
+Este projeto faz parte dos meus estudos de **JavaScript e desenvolvimento front-end**, inspirado em aulas do canal da **Rafaella Ballerini**.
 
-✅ Adicionar tarefa
+Ele foi expandido com funcionalidades extras para praticar conceitos mais avançados da linguagem.
 
-❌ Remover tarefa
+O projeto permite adicionar, editar, concluir e remover tarefas, além de filtrar tarefas pendentes e concluídas.  
+As informações são armazenadas no **LocalStorage**, permitindo que os dados permaneçam salvos mesmo após recarregar a página.
 
-✏️ Editar tarefa
+🔗 **Projeto online:**  
+https://tiagosantos-listadetarefas.vercel.app/
 
-🗑️ Limpar lista completa
+---
 
-🎯 Validação de campo vazio
+## 📸 Demonstração
 
-📢 Mensagens de feedback para o usuário
+![Screenshot_20260311_123451_Samsung Internet](https://github.com/user-attachments/assets/f9cdca87-aa55-4825-8a50-96ddec203216)
 
-👁️ Botão "Limpar Lista" aparece apenas quando há tarefas
+---
 
+# 🚀 Funcionalidades
 
-### **🧠 Conceitos Trabalhados:**
+✔ Adicionar tarefas  
+✔ Editar tarefas existentes  
+✔ Remover tarefas  
+✔ Marcar tarefas como concluídas  
+✔ Filtro de tarefas:
+- Todas
+- Pendentes
+- Concluídas  
 
-### **📌 1. Manipulação do DOM**
+✔ Contador de tarefas por categoria  
+✔ Persistência de dados com **LocalStorage**  
+✔ Modal para edição de tarefas  
+✔ Validação de campo vazio  
+✔ Responsivo para dispositivos móveis  
 
-document.getElementById()
+---
 
-document.createElement()
+# 🛠 Tecnologias utilizadas
 
-appendChild()
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla JS)**
 
-innerHTML
+Conceitos aplicados:
 
-textContent
+- Manipulação do **DOM**
+- **Eventos JavaScript**
+- **Arrays e objetos**
+- Métodos de array (`filter`)
+- **LocalStorage**
+- Estruturação de funções
+- Manipulação dinâmica de elementos HTML
 
-Manipulação dinâmica de elementos
+---
 
-### **📌 2. Eventos**
+# 🧠 Conceitos praticados
 
-onclick
+Este projeto foi desenvolvido com foco em praticar:
 
-addEventListener()
-
-Eventos de clique em elementos criados dinamicamente
-
-### **📌 3. Arrays**
-
-Criação de array
-
-push() para adicionar itens
-
-splice() para remover itens
-
-length para controle de estado
-
-Percorrer array com for e forEach
-
-### **📌 4. Estruturas Condicionais**
-
-if / else
-
-Validação de campo vazio
-
-Controle de exibição de elementos
-
-### **📌 5. Manipulação de Classes CSS**
-
-classList.toggle()
-
-Separação de responsabilidade entre CSS e JavaScript
-
-Controle de visibilidade via classe .oculto
-
-### **📌 6. Boas Práticas Aplicadas**
-
-Uso de trim() para remover espaços
-
-Prevenção de erro ao cancelar prompt()
-
-Separação de funções por responsabilidade
-
-Código organizado e reutilizável
-
-Re-renderização controlada da lista
-
-### **🎯 Objetivo do Projeto**
-
-Praticar:
-
-- Lógica de programação
-
-- Manipulação dinâmica de elementos
-
-- Controle de estado com arrays
-
-- Interação entre HTML, CSS e JavaScript
-
-### **💻 Tecnologias Utilizadas**
-
-- HTML5
-
-- CSS3
-
-- JavaScript (Vanilla JS)
+- CRUD com JavaScript
+- Manipulação dinâmica da interface
+- Gerenciamento de estado usando arrays
+- Estruturação de código JavaScript
+- Persistência de dados no navegador
